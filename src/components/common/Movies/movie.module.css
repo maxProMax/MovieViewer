@@ -1,0 +1,13 @@
+.movie {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.title {
+    color: #666;
+}
+
+.image {
+    width: 100%;
+}
