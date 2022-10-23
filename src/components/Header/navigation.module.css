@@ -1,0 +1,14 @@
+.nav {
+    padding: 48px 24px 24px;
+    width: 200px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.item {
+    cursor: pointer;
+}

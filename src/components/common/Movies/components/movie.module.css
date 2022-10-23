@@ -1,0 +1,32 @@
+.movie {
+    --border-radius: 4px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 8px;
+    border-radius: var(--border-radius);
+}
+
+.title {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    color: #666;
+}
+
+.titleText {
+    flex-grow: 1;
+}
+
+.image {
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.icons {
+    display: flex;
+    column-gap: 4px;
+}

@@ -1,5 +1,5 @@
 import { API_KEY, HOST } from './constants';
-import { SearchResp, ConfigurationResp } from './types';
+import { MoviesResp, ConfigurationResp, Movie } from './types';
 
 export const getEndpoint =
     <T>(path: string) =>
@@ -20,5 +20,11 @@ export const getEndpoint =
 export const getConfiguration = () =>
     getEndpoint<ConfigurationResp>('configuration')();
 
-export const getSearchMovie = (params: { query: string }) =>
-    getEndpoint<SearchResp>('search/movie')(params);
+export const getSearchMovie = (params: { query: string; page?: number }) =>
+    getEndpoint<MoviesResp>('search/movie')(params);
+
+export const getMovie = (movie_id: number) =>
+    getEndpoint<Movie>(`movie/${movie_id}`)();
+
+export const getMovieTopRated = () =>
+    getEndpoint<MoviesResp>('movie/top_rated')();

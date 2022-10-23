@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import { Body } from './components/Body';
-import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { useInitRedux } from './store';
+import { AppRoutes } from './router/Routes';
 import './App.css';
 
 export const App: FC = () => {
@@ -11,8 +10,7 @@ export const App: FC = () => {
     return (
         <>
             <Header />
-            <Body />
-            <Footer />
+            <AppRoutes />
         </>
     );
 };

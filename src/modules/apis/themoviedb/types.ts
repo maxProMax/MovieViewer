@@ -1,4 +1,4 @@
-export type Movie = {
+export interface MovieShort {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];
@@ -13,7 +13,21 @@ export type Movie = {
     video: boolean;
     vote_average: number;
     vote_count: number;
-};
+}
+
+export interface Movie extends MovieShort {
+    belongs_to_collection: unknown;
+    budget: number;
+    genres: { id: number; name: string }[];
+    homepage: string;
+    imdb_id: string;
+    production_companies: string[];
+    revenue: number;
+    runtime: number;
+    status: string;
+    vote_average: number;
+    vote_count: number;
+}
 
 export interface ConfigurationResp {
     images?: {
@@ -42,6 +56,6 @@ interface ResponseList {
     total_pages: number;
 }
 
-export interface SearchResp extends ResponseList {
-    results: Movie[];
+export interface MoviesResp extends ResponseList {
+    results: MovieShort[];
 }

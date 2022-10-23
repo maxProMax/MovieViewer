@@ -1,0 +1,13 @@
+.search {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+@media (min-width: 1104px) {
+    .search {
+        width: 30%;
+        flex-direction: row;
+        column-gap: 16px;
+    }
+}

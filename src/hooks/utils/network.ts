@@ -22,6 +22,7 @@ export const useFetch = <T extends (...params: any[]) => Promise<any>>(
             try {
                 const data = await request(...params);
                 updateState(data);
+                updateLoading(false);
                 return data;
             } catch (error) {
                 setError(error as any);
