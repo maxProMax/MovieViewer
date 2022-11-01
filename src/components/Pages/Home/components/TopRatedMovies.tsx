@@ -1,7 +1,7 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
-import { useMovieTopRated } from '../../../hooks/api';
-import { Movies } from '../../common/Movies';
+import { useMovieTopRated } from 'src/hooks/api';
+import { Movies } from 'src/components/common/Movies';
 
 export const TopRatedMovies: FC = () => {
     const { state: topRatedMovies, request: getTopRated } = useMovieTopRated();

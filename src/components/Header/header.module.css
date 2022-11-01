@@ -23,4 +23,7 @@
 
 .burger {
     display: inline-flex;
+    background: none;
+    border: none;
+    padding: 0;
 }

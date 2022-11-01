@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useConfiguration } from '../../../store/hooks';
+import { useConfiguration } from 'src/store/hooks';
 
 interface Props {
     src: string;

@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Body } from '../components/Body';
-import { Home } from '../components/Pages/Home';
-import { Favorites } from '../components/Pages/Favorites';
-import { WatchLater } from '../components/Pages/WatchLater';
+import { Body } from 'src/components/Body';
+import { Home } from 'src/components/Pages/Home';
+import { Favorites } from 'src/components/Pages/Favorites';
+import { WatchLater } from 'src/components/Pages/WatchLater';
+import { MoviePage } from 'src/components/Pages/MoviePage';
 import { Links } from './types';
 
 export const AppRoutes: FC = () => (
@@ -12,6 +13,7 @@ export const AppRoutes: FC = () => (
             <Route index element={<Home />} />
             <Route path={Links.FAVORITES} element={<Favorites />} />
             <Route path={Links.WATCH_LATER} element={<WatchLater />} />
+            <Route path={`${Links.MOVIE}/:id`} element={<MoviePage />} />
             <Route path={Links.OTHER} element={<Home />} />
         </Route>
     </Routes>

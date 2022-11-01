@@ -1,9 +1,9 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { GlobalProvider } from './Providers';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+    render(<App />, { wrapper: GlobalProvider });
+
+    expect(screen.getByText(/MovieViewer/i)).toBeInTheDocument();
 });

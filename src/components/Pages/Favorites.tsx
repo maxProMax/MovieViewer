@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { useFavorites } from '../../store/hooks';
-import { Movies } from '../common/Movies';
+import { useFavorites } from 'src/store/hooks';
+import { Movies } from 'src/components/common/Movies';
 
 export const Favorites: FC = () => {
-    const { favorites } = useFavorites();
+    const { favorites, count } = useFavorites();
 
-    return favorites.length ? (
-        <Movies movies={favorites} />
+    return count ? (
+        <Movies movies={Object.values(favorites)} />
     ) : (
         <div>No Movies Yet</div>
     );

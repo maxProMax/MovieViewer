@@ -1,3 +1,11 @@
 .icon {
     display: inline-flex;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.disabled {
+    cursor: initial;
+    color: grey;
 }

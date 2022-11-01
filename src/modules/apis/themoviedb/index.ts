@@ -1,5 +1,5 @@
 import { API_KEY, HOST } from './constants';
-import { MoviesResp, ConfigurationResp, Movie } from './types';
+import { MoviesResp, ConfigurationResp, Movie, MovieVideosResp } from './types';
 
 export const getEndpoint =
     <T>(path: string) =>
@@ -9,6 +9,10 @@ export const getEndpoint =
             ...queryParams,
         });
         const url = `${HOST}/${path}?${params}`;
+
+        if (!HOST) {
+            return Promise.reject('NO Api hostname');
+        }
 
         return fetch(url).then<T>((r) =>
             r.ok
@@ -25,6 +29,9 @@ export const getSearchMovie = (params: { query: string; page?: number }) =>
 
 export const getMovie = (movie_id: number) =>
     getEndpoint<Movie>(`movie/${movie_id}`)();
+
+export const getMovieVideos = (movie_id: number) =>
+    getEndpoint<MovieVideosResp>(`movie/${movie_id}/videos`)();
 
 export const getMovieTopRated = () =>
     getEndpoint<MoviesResp>('movie/top_rated')();

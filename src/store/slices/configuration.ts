@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ConfigurationResp } from '../../modules/apis/themoviedb/types';
+import { ConfigurationResp } from 'src/modules/apis/themoviedb/types';
 import { getConfigurationThunk } from './thunks';
 
 export interface State extends ConfigurationResp {

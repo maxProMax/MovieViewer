@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Movie } from '../../modules/apis/themoviedb/types';
+import { Movie } from 'src/modules/apis/themoviedb/types';
 
 export interface State {
-    favorites: Movie[];
+    favorites: Record<string, Movie>;
+    count: number;
 }
 
 const initialState: State = {
-    favorites: [],
+    favorites: {},
+    count: 0,
 };
 
 export const favoritesSlice = createSlice({
@@ -14,12 +16,13 @@ export const favoritesSlice = createSlice({
     initialState,
     reducers: {
         add: (state, action: PayloadAction<Movie>) => {
-            state.favorites.push(action.payload);
+            state.count += 1;
+            state.favorites[action.payload.id] = action.payload;
         },
         remove: (state, action: PayloadAction<number>) => {
-            state.favorites = state.favorites.filter(
-                ({ id }) => id !== action.payload
-            );
+            state.count -= 1;
+
+            delete state.favorites[action.payload];
         },
     },
 });

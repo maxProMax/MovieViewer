@@ -1,0 +1,45 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.title {
+    max-width: 400px;
+}
+
+.poster {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    max-width: 600px;
+}
+
+.iframe {
+    max-width: 100%;
+}
+
+@media (min-width: 1104px) {
+    .top {
+        flex-direction: row;
+        column-gap: 24px;
+    }
+
+    .poster {
+        width: 300px;
+    }
+
+    .iframe {
+        height: 600px;
+    }
+}

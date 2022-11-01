@@ -21,11 +21,6 @@
     flex-grow: 1;
 }
 
-.image {
-    width: 100%;
-    border-radius: var(--border-radius);
-}
-
 .icons {
     display: flex;
     column-gap: 4px;

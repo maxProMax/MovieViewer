@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Movie } from '../../modules/apis/themoviedb/types';
+import { Movie } from 'src/modules/apis/themoviedb/types';
 
 export interface State {
-    watchLater: Movie[];
+    watchLater: Record<string, Movie>;
+    count: number;
 }
 
 const initialState: State = {
-    watchLater: [],
+    watchLater: {},
+    count: 0,
 };
 
 export const watchLaterSlice = createSlice({
@@ -14,12 +16,13 @@ export const watchLaterSlice = createSlice({
     initialState,
     reducers: {
         add: (state, action: PayloadAction<Movie>) => {
-            state.watchLater.push(action.payload);
+            state.count += 1;
+            state.watchLater[action.payload.id] = action.payload;
         },
         remove: (state, action: PayloadAction<number>) => {
-            state.watchLater = state.watchLater.filter(
-                ({ id }) => id !== action.payload
-            );
+            state.count -= 1;
+
+            delete state.watchLater[action.payload];
         },
     },
 });

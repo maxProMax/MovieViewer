@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { useWatchLatter } from '../../store/hooks';
-import { Movies } from '../common/Movies';
+import { useWatchLatter } from 'src/store/hooks';
+import { Movies } from 'src/components/common/Movies';
 
 export const WatchLater: FC = () => {
-    const { watchLater } = useWatchLatter();
+    const { watchLater, count } = useWatchLatter();
 
-    return watchLater.length ? (
-        <Movies movies={watchLater} />
+    return count ? (
+        <Movies movies={Object.values(watchLater)} />
     ) : (
         <div>No Movies Yet</div>
     );

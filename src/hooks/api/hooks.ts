@@ -2,15 +2,20 @@ import {
     getSearchMovie,
     getMovie,
     getMovieTopRated,
-} from '../../modules/apis/themoviedb';
-import { useFetch } from '../utils/network';
+    getMovieVideos,
+} from 'src/modules/apis/themoviedb';
+import { useFetch } from 'src/hooks/utils/network';
 
-export const useSearch = () => {
+export const useMovieSearch = () => {
     return useFetch(getSearchMovie);
 };
 
-export const useGetMovie = () => {
+export const useMovie = () => {
     return useFetch(getMovie);
+};
+
+export const useMovieVideos = () => {
+    return useFetch(getMovieVideos);
 };
 
 export const useMovieTopRated = () => {

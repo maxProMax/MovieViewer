@@ -28,9 +28,10 @@ export const useConfiguration = () => {
 
 export const useFavorites = () => {
     const dispatch = useAppDispatch();
-    const { favorites } = useAppSelector((state) => state.favorites);
+    const { favorites, count } = useAppSelector((state) => state.favorites);
 
     return {
+        count,
         favorites,
         add: (...args: Parameters<typeof addToFavorite>) =>
             dispatch(addToFavorite(...args)),
@@ -40,10 +41,11 @@ export const useFavorites = () => {
 
 export const useWatchLatter = () => {
     const dispatch = useAppDispatch();
-    const { watchLater } = useAppSelector((state) => state.watchLater);
+    const { watchLater, count } = useAppSelector((state) => state.watchLater);
 
     return {
         watchLater,
+        count,
         add: (...args: Parameters<typeof addToWatchLater>) =>
             dispatch(addToWatchLater(...args)),
         remove: (id: number) => dispatch(removeFromWatchLater(id)),

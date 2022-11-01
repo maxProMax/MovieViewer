@@ -4,10 +4,11 @@ import Button from '@mui/material/Button';
 import styles from './search.module.css';
 
 export const Search: FC<{
-    onSearch: (query: string) => void;
+    defaultValue?: string;
+    onSearch: (value: string) => void;
     disabled?: boolean;
-}> = ({ onSearch, disabled = false }) => {
-    const [search, updateSearch] = useState('');
+}> = ({ defaultValue = '', onSearch, disabled = false }) => {
+    const [search, updateSearch] = useState(defaultValue);
     const handleSubmit = useCallback(
         (e: FormEvent<HTMLFormElement>) => {
             onSearch(search);
